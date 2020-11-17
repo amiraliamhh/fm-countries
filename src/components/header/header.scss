@@ -1,0 +1,28 @@
+@import '../../assets/styles/_variables.scss';
+@import '../../assets//styles/light.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  background-color: $secondary-bg;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, .1);
+  display: flex;
+  align-items: center;
+  padding-left: $padding-left;
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: $container-width;
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    span {
+      font-weight: 600;
+    }
+  }
+}
