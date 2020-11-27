@@ -11,6 +11,7 @@ import { Country } from './components/interfaces/country'
 
 export const App = () => {
   const [countries, setCountries] = useState<Country[]>([])
+  const [dark, setDark] = useState(false)
 
   const fetchCountries = async () => {
     const response = await fetch('https://restcountries.eu/rest/v2/all')
@@ -39,16 +40,22 @@ export const App = () => {
     setCountries(listOfCountries)
   }
 
+  const toggleTheme = () => {
+    setDark(state => !state)
+  }
+
   useEffect(() => {
     fetchCountries()
   }, [])
 
   return (
-    <div>
-      <Header />
-      <div className="container">
-        <Filter onFilter={handleFilter} onRegionFilter={handleRegionFilter} />
-        <List countries={countries} />
+    <div className={`theme--${dark ? 'dark' : 'light'}`}>
+      <div className="bg-primary">
+        <Header toggleTheme={toggleTheme} />
+        <div className="container">
+          <Filter onFilter={handleFilter} onRegionFilter={handleRegionFilter} />
+          <List countries={countries} />
+        </div>
       </div>
     </div>
   )

@@ -34,21 +34,21 @@ export const Filter = ({ onFilter, onRegionFilter }: { onFilter: Function, onReg
   return (
     <div className="filter__filters">
       <div className="filter__search-input">
-        <input type="text" placeholder="Search for a country ..." onChange={handleSearchChange} />
+        <input className="bg-secondary color-primary" type="text" placeholder="Search for a country ..." onChange={handleSearchChange} />
         <FontAwesomeIcon className="filter__search-icon" color="#808080" icon={faSearch} />
       </div>
-      <div className="filter__region" onClick={toggleRegions}>
-        <span>Filter by Region</span>
-        <FontAwesomeIcon icon={faChevronDown} size="xs" />
+      <div className="filter__region bg-secondary" onClick={toggleRegions}>
+        <span className="color-primary">Filter by Region</span>
+        <FontAwesomeIcon className="color-primary" icon={faChevronDown} size="xs" />
 
         {
           showRegions && (
-            <div className="filter__regions-list" onClick={filterByRegion}>
-              <p data-name="africa">Africa</p>
-              <p data-name="americas">America</p>
-              <p data-name="asia">Asia</p>
-              <p data-name="europe">Europe</p>
-              <p data-name="oceania">Oceania</p>
+            <div className="filter__regions-list bg-secondary" onClick={filterByRegion}>
+              <p className="color-primary" data-name="africa">Africa</p>
+              <p className="color-primary" data-name="americas">America</p>
+              <p className="color-primary" data-name="asia">Asia</p>
+              <p className="color-primary" data-name="europe">Europe</p>
+              <p className="color-primary" data-name="oceania">Oceania</p>
             </div>
           )
         }

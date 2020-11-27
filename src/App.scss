@@ -1,6 +1,32 @@
 @import './assets/styles/variables.scss';
 
 .container {
+  padding-top: calc(#{$header-height} + 48px);
   width: $container-width;
   padding-left: $padding-left;
+}
+
+.theme {
+  &--light {
+    .bg-secondary {
+      background-color: white;
+    }
+    .bg-primary {
+      background-color: #fafafa;
+    }
+    .color-primary {
+      color: #101113;
+    }
+  }
+  &--dark {
+    .bg-secondary {
+      background-color: #2B3743;
+    }
+    .bg-primary {
+      background-color: #202D36;
+    }
+    .color-primary {
+      color: #fff;
+    }
+  }
 }
