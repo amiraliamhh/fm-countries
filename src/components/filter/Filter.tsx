@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 import './filter.scss'
 
-export const Filter = () => {
+export const Filter = ({ onFilter, onRegionFilter }: { onFilter: Function, onRegionFilter: Function }) => {
   const [showRegions, setShowRegions] = useState(false)
 
   const toggleRegions = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -21,10 +21,20 @@ export const Filter = () => {
     return () => { document.removeEventListener('click', closeRegions) }
   }, [])
 
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onFilter(e.target.value)
+  }
+
+  const filterByRegion = (e: any) => {
+    if (e.target?.dataset) {
+      onRegionFilter(e.target.dataset.name)
+    }
+  }
+
   return (
     <div className="filter__filters">
       <div className="filter__search-input">
-        <input type="text" placeholder="Search for a country ..." />
+        <input type="text" placeholder="Search for a country ..." onChange={handleSearchChange} />
         <FontAwesomeIcon className="filter__search-icon" color="#808080" icon={faSearch} />
       </div>
       <div className="filter__region" onClick={toggleRegions}>
@@ -33,12 +43,12 @@ export const Filter = () => {
 
         {
           showRegions && (
-            <div className="filter__regions-list">
-              <p>Africa</p>
-              <p>America</p>
-              <p>Asia</p>
-              <p>Europe</p>
-              <p>Oceania</p>
+            <div className="filter__regions-list" onClick={filterByRegion}>
+              <p data-name="africa">Africa</p>
+              <p data-name="americas">America</p>
+              <p data-name="asia">Asia</p>
+              <p data-name="europe">Europe</p>
+              <p data-name="oceania">Oceania</p>
             </div>
           )
         }

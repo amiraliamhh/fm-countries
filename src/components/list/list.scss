@@ -1,0 +1,51 @@
+@import '../../assets/styles/_light.scss';
+
+$box-shadow: 0px 0px 5px 1px rgba(100, 100, 100, 0.1);;
+
+.list {
+  margin-top: 50px;
+  display: grid;
+  column-gap: 75px;
+  grid-template-columns: auto auto auto auto;
+  &__item {
+    margin-top: 75px;
+    width: 100%;
+    height: 335px;
+    border-radius: 5px;
+    background-color: $secondary-bg;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+    &:nth-child(-n+4) {
+      margin-top: 0px;
+    }
+  }
+  &__flag {
+    width: 100%;
+    height: 160px;
+    img {
+      width: 100%;
+      height: 160px;
+    }
+  }
+  &__country {
+    margin-top: 25px;
+    padding-left: 24px;
+    h5 {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+  &__country-info {
+    padding-top: 10px;
+    p {
+      font-size: 14px;
+      margin: 0;
+      margin-top: 6px;
+      font-weight: 600;
+      span {
+        margin-left: 4px;
+        font-weight: 300;
+      }
+    }
+  }
+}

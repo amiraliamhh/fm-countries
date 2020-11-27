@@ -3,6 +3,7 @@
 
 .header {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -11,18 +12,23 @@
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, .1);
   display: flex;
   align-items: center;
-  padding-left: $padding-left;
   &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: $container-width;
+    padding-left: $padding-left;
     h2 {
       font-size: 24px;
       font-weight: bold;
     }
     span {
       font-weight: 600;
+    }
+  }
+  &__night-mode {
+    &--icon {
+      margin-right: 10px;
     }
   }
 }
