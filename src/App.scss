@@ -6,6 +6,10 @@
   padding-left: $padding-left;
 }
 
+.bg {
+  min-height: 100vh;
+}
+
 .theme {
   &--light {
     .bg-secondary {

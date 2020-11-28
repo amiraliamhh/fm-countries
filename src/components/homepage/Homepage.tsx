@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
 import {
-  Header,
   Filter,
   List
 } from '../'
 import { debounce } from '../utils'
 import { Country } from '../interfaces/country'
 
-export const Homepage = ({ toggleTheme }: { toggleTheme: () => void }) => {
+export const Homepage = () => {
   const [countries, setCountries] = useState<Country[]>([])
 
   const fetchCountries = async () => {
@@ -44,7 +43,6 @@ export const Homepage = ({ toggleTheme }: { toggleTheme: () => void }) => {
 
   return (
     <>
-      <Header toggleTheme={toggleTheme} />
       <div className="container">
         <Filter onFilter={handleFilter} onRegionFilter={handleRegionFilter} />
         <List countries={countries} />
