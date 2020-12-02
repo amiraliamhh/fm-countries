@@ -17,6 +17,9 @@ export const Homepage = () => {
   }
 
   const search = async (name: string) => {
+    if (!name) {
+      return fetchCountries()
+    }
     try {
       const response = await fetch(`https://restcountries.eu/rest/v2/name/${name}`)
       const listOfCountries = await response.json()
@@ -26,7 +29,7 @@ export const Homepage = () => {
     }
   }
 
-  const searchDebounced = debounce(search, 1e3)
+  const searchDebounced = debounce(search, 5e2)
   const handleFilter = (name: string) => {
     searchDebounced(name)
   }
