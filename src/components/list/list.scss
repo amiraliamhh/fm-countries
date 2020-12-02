@@ -5,8 +5,8 @@ $box-shadow: 0px 0px 5px 1px rgba(100, 100, 100, 0.1);;
 .list {
   margin-top: 50px;
   display: grid;
-  column-gap: 75px;
-  grid-template-columns: auto auto auto auto;
+  column-gap: 1%;
+  grid-template-columns: 24.25% 24.25% 24.25% 24.25%;
   &__item {
     margin-top: 75px;
     width: 100%;
